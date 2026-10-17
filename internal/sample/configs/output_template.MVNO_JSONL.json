@@ -1,0 +1,14 @@
+{
+  "name": "MVNO_JSONL",
+  "format": "jsonl",
+  "fields": [
+    {"name": "tenant", "source": "tenant", "default": "UNKNOWN"},
+    {"name": "imsi", "source": "served_imsi"},
+    {"name": "msisdn", "source": "served_msisdn"},
+    {"name": "other_party", "source": "other_party"},
+    {"name": "start", "source": "start_time"},
+    {"name": "duration", "source": "duration_s"},
+    {"name": "charged", "source": "charged_s"},
+    {"name": "call_type", "source": "rec.call_type"}
+  ]
+}

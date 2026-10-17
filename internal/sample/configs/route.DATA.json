@@ -1,0 +1,2 @@
+{"code": "DATA", "name": "Data sessions (local)", "output_template": "DATA_CSV", "dir": "/var/med/out/data",
+ "naming": "DATA_{stream}_{yyyy}{MM}{dd}{HH}{mm}{ss}_{seq:6}.csv", "rotation": {"mode": "per_input"}}

@@ -1,0 +1,8 @@
+{
+  "name": "TG_VOLUME",
+  "calls": [
+    {"fn": "ADD", "args": ["volume_total", "volume_up", "volume_down"]},
+    {"fn": "DIV", "args": ["volume_mb", "volume_total", "=1048576"]},
+    {"fn": "ROUND", "args": ["volume_mb", "3", "half"]}
+  ]
+}

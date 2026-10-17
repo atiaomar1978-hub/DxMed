@@ -1,0 +1,6 @@
+{
+  "name": "TG_MVNO",
+  "calls": [
+    {"fn": "LOOKSET", "args": ["tenant", "mvno_ranges", "served_msisdn"]}
+  ]
+}

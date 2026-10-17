@@ -1,0 +1,16 @@
+{
+  "name": "PGW_DATA",
+  "description": "PGW data sessions: partial CDRs sorted and merged per charging id (sort & merge)",
+  "enabled": true,
+  "source": {"type": "dir", "path": "/var/med/in/pgw", "pattern": "PGW*.ber", "stable_for": "2s"},
+  "decoding_template": "PGW_CDR",
+  "rule_set": "PGW_RULES",
+  "merge_profile": "GPRS_PARTIALS",
+  "routes": ["DATA", "DROAM", "ERR"],
+  "lookups": ["home_plmn"],
+  "dedupe": {"file": {"name": true, "checksum": true}},
+  "error_route": "ERR",
+  "duration_field": "duration_s",
+  "volume_field": "volume_total",
+  "time_field": "start_time"
+}

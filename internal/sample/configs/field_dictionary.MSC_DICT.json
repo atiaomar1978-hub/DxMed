@@ -1,0 +1,10 @@
+{
+  "name": "MSC_DICT",
+  "fields": [
+    {"name": "served_imsi", "kind": "string", "mandatory": true, "regex": "^[0-9]{14,15}$", "description": "Subscriber IMSI"},
+    {"name": "served_msisdn", "kind": "string", "regex": "^[0-9]{6,15}$", "description": "Subscriber MSISDN"},
+    {"name": "duration_s", "kind": "number", "min": "0", "max": "86400", "description": "Call duration in seconds"},
+    {"name": "start_time", "kind": "time", "mandatory": true, "max_future": "24h", "description": "Answer time"},
+    {"name": "msc_id", "kind": "string", "mandatory": true, "description": "Recording MSC"}
+  ]
+}

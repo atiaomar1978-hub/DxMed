@@ -1,0 +1,22 @@
+{
+  "name": "MSC_ERICSSON",
+  "description": "Voice CDRs from the MSC pool (3GPP TS 32.298 style BER): roaming / local / MVNO split",
+  "enabled": true,
+  "source": {"type": "dir", "path": "/var/med/in/msc", "pattern": "MSC*.ber", "stable_for": "2s"},
+  "decoding_template": "ERICSSON_MSC",
+  "rule_set": "MSC_RULES",
+  "dictionary": "MSC_DICT",
+  "routes": ["R", "I", "L", "MVNO", "ERR", "DUP"],
+  "lookups": ["home_plmn", "home_msc", "mvno_ranges"],
+  "dedupe": {
+    "record_key": ["msc_id", "record_seq", "start_time", "served_imsi"],
+    "retention": "840h",
+    "file": {"name": true, "checksum": true, "seq_range": true, "time_range": false, "gap": true},
+    "on_range_dup": "reject"
+  },
+  "error_route": "ERR",
+  "dup_route": "DUP",
+  "duration_field": "duration_s",
+  "seq_field": "record_seq",
+  "time_field": "start_time"
+}

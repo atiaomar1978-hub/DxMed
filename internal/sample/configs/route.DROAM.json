@@ -1,0 +1,2 @@
+{"code": "DROAM", "name": "Data sessions of outbound roamers", "output_template": "DATA_CSV", "dir": "/var/med/out/roaming",
+ "naming": "DROAM_{stream}_{yyyy}{MM}{dd}{HH}{mm}{ss}_{seq:6}.csv", "rotation": {"mode": "per_input"}}

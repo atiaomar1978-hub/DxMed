@@ -1,0 +1,20 @@
+{
+  "name": "GPRS_PARTIALS",
+  "sort": [{"field": "record_seq"}],
+  "relate": ["charging_id", "pgw_address"],
+  "end_condition": [{"field": "cause_for_close", "op": "=", "value": "0"}],
+  "rules": [
+    {"field": "*record", "fn": "FIRST", "content": "BASE"},
+    {"field": "duration_s", "fn": "SUM"},
+    {"field": "volume_up", "fn": "SUM"},
+    {"field": "volume_down", "fn": "SUM"},
+    {"field": "end_time", "fn": "LAST"},
+    {"field": "cause_for_close", "fn": "LAST"},
+    {"field": "record_seq", "fn": "COUNT", "target": "partials"},
+    {"field": "rat_type", "fn": "DIFCNT", "target": "rat_changes"}
+  ],
+  "close_times": ["00:00"],
+  "ttl": "6h",
+  "max_partials": 100,
+  "on_expiry": "uncol"
+}

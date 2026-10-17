@@ -1,0 +1,2 @@
+{"code": "I", "name": "Inbound roamers (for TAP out)", "output_template": "CDR_CSV", "dir": "/var/med/out/inbound",
+ "naming": "INB_{stream}_{yyyy}{MM}{dd}{HH}{mm}{ss}_{seq:6}.csv", "rotation": {"mode": "per_input"}}

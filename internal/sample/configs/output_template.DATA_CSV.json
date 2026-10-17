@@ -1,0 +1,21 @@
+{
+  "name": "DATA_CSV",
+  "format": "csv",
+  "header_line": true,
+  "trailer": "T|{count}|{sum:volume_total}|{sum:duration_s}",
+  "fields": [
+    {"name": "imsi", "source": "served_imsi", "mandatory": true},
+    {"name": "charging_id", "source": "charging_id"},
+    {"name": "pgw", "source": "pgw_address"},
+    {"name": "apn", "source": "apn"},
+    {"name": "start", "source": "start_time", "format": "YYYYMMDDhhmmss"},
+    {"name": "end", "source": "end_time", "format": "YYYYMMDDhhmmss"},
+    {"name": "duration", "source": "duration_s"},
+    {"name": "up", "source": "volume_up"},
+    {"name": "down", "source": "volume_down"},
+    {"name": "total", "source": "volume_total"},
+    {"name": "mb", "source": "volume_mb", "format": "dp:3"},
+    {"name": "partials", "source": "partials", "default": "1"},
+    {"name": "reason", "source": "rec.reason"}
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "PGW_CDR",
+  "format": "ber",
+  "file": {"exchange_id": {"regex": "^(PGW[0-9]+)_"}},
+  "records": [
+    {"tag": "[79] C", "record_type": "pgwRecord", "call_type": "gprs", "fields": [
+      {"tag": "[3]", "name": "served_imsi", "type": "TBCD", "mandatory": true},
+      {"tag": "[4]", "name": "pgw_address", "type": "IPADD"},
+      {"tag": "[5]", "name": "charging_id", "type": "NUM", "mandatory": true},
+      {"tag": "[6]", "name": "apn", "type": "ASCII"},
+      {"tag": "[7]", "name": "record_seq", "type": "NUM"},
+      {"tag": "[8]", "name": "cause_for_close", "type": "NUM"},
+      {"tag": "[9]", "name": "volume_up", "type": "NUM"},
+      {"tag": "[10]", "name": "volume_down", "type": "NUM"},
+      {"tag": "[11]", "name": "duration_s", "type": "NUM"},
+      {"tag": "[12]", "name": "start_time", "type": "TIME_BCD"},
+      {"tag": "[13]", "name": "end_time", "type": "TIME_BCD"},
+      {"tag": "[14]", "name": "rat_type", "type": "NUM"}
+    ]}
+  ]
+}

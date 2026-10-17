@@ -1,0 +1,3 @@
+{"code": "R", "name": "Outbound roaming (visited networks)", "output_template": "CDR_CSV", "dir": "/var/med/out/roaming",
+ "naming": "ROAM_{stream}_{yyyy}{MM}{dd}{HH}{mm}{ss}_{seq:6}.csv", "rotation": {"mode": "per_input"},
+ "post_actions": [{"op": "checksum"}]}

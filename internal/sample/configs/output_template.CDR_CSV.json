@@ -1,0 +1,22 @@
+{
+  "name": "CDR_CSV",
+  "format": "csv",
+  "header_line": true,
+  "header": "H|{stream}|{route}|{input_name}|{created}",
+  "trailer": "T|{count}|{sum:duration_s}|{min:start_time}|{max:start_time}",
+  "fields": [
+    {"name": "record_type", "source": "rec.record_type"},
+    {"name": "imsi", "source": "served_imsi", "mandatory": true},
+    {"name": "msisdn", "source": "served_msisdn"},
+    {"name": "other_party", "source": "other_party"},
+    {"name": "msc", "source": "msc_id"},
+    {"name": "lac", "source": "location.lac"},
+    {"name": "ci", "source": "location.ci"},
+    {"name": "start", "source": "start_time", "format": "YYYYMMDDhhmmss"},
+    {"name": "duration", "source": "duration_s"},
+    {"name": "charged", "source": "charged_s"},
+    {"name": "cause", "source": "cause_for_term"},
+    {"name": "reason", "source": "rec.reason"},
+    {"name": "seq", "source": "record_seq"}
+  ]
+}

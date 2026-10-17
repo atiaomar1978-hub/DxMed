@@ -1,0 +1,2 @@
+{"code": "ERR", "name": "Rejected records", "output_template": "ERR_CSV", "dir": "/var/med/out/error",
+ "naming": "ERR_{stream}_{input_base}_{seq:6}.csv", "rotation": {"mode": "per_input"}}

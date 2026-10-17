@@ -1,0 +1,2 @@
+{"code": "MVNO", "name": "MVNO tenants", "output_template": "MVNO_JSONL", "dir": "/var/med/out/mvno",
+ "naming": "MVNO_{stream}_{yyyy}{MM}{dd}{HH}{mm}{ss}_{seq:6}.jsonl", "rotation": {"mode": "per_input"}}

@@ -1,0 +1,14 @@
+{
+  "name": "ERR_CSV",
+  "format": "csv",
+  "header_line": true,
+  "fields": [
+    {"name": "seq", "source": "rec.seq"},
+    {"name": "record_type", "source": "rec.record_type"},
+    {"name": "reason", "source": "rec.reason"},
+    {"name": "errors", "source": "rec.errors"},
+    {"name": "imsi", "source": "served_imsi"},
+    {"name": "start", "source": "start_time"},
+    {"name": "file", "source": "file.name"}
+  ]
+}

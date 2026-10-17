@@ -1,0 +1,22 @@
+{
+  "name": "MSC_RULES",
+  "default": {"action": "L", "reason": "LOCAL"},
+  "stages": {
+    "PRE": [
+      {"call_type": "*any", "conditions": [
+        {"no": 1, "items": [{"field": "duration_s", "op": "=", "value": "0"}], "action": "DROP", "reason": "ZERO_DUR"},
+        {"no": 2, "items": [{"field": "cause_for_term", "op": "*in", "values": ["98", "99"]}], "action": "ERROR", "reason": "ABNORMAL_TERM"},
+        {"no": 3, "items": [{"field": "*any"}], "action": "L", "reason": "LOCAL", "transform": "TG_NORMALISE", "flow": "continue"}
+      ]},
+      {"call_type": "1", "conditions": [
+        {"no": 1, "items": [{"field": "served_imsi", "op": "*notprefix", "lookup": "home_plmn"}], "action": "R", "reason": "ROAM_OUT"},
+        {"no": 2, "items": [{"field": "msc_id", "op": "*notin", "lookup": "home_msc"}], "action": "I", "reason": "ROAM_IN"},
+        {"no": 3, "items": [{"field": "served_msisdn", "op": "*prefix", "lookup": "mvno_ranges"}], "action": "MVNO", "reason": "MVNO", "transform": "TG_MVNO"}
+      ], "default": {"action": "L", "reason": "LOCAL_MO"}},
+      {"call_type": "2", "conditions": [
+        {"no": 1, "items": [{"field": "served_imsi", "op": "*notprefix", "lookup": "home_plmn"}], "action": "R", "reason": "ROAM_OUT_MT"},
+        {"no": 2, "items": [{"field": "served_msisdn", "op": "*prefix", "lookup": "mvno_ranges"}], "action": "MULTI:MVNO,L", "reason": "MVNO_MT", "transform": "TG_MVNO"}
+      ], "default": {"action": "L", "reason": "LOCAL_MT"}}
+    ]
+  }
+}

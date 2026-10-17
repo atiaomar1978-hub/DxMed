@@ -1,0 +1,21 @@
+{
+  "name": "PGW_RULES",
+  "stages": {
+    "PRE": [
+      {"call_type": "*any", "conditions": [
+        {"no": 1, "items": [{"field": "charging_id", "op": "*exists"}], "action": "HOLD", "reason": "PARTIAL"}
+      ]}
+    ],
+    "COL": [
+      {"call_type": "*any", "conditions": [
+        {"no": 1, "items": [{"field": "*any"}], "action": "DATA", "reason": "SESSION", "transform": "TG_VOLUME", "flow": "continue"},
+        {"no": 2, "items": [{"field": "served_imsi", "op": "*notprefix", "lookup": "home_plmn"}], "action": "DROAM", "reason": "ROAM_DATA"}
+      ]}
+    ],
+    "UNCOL": [
+      {"call_type": "*any", "conditions": [
+        {"no": 1, "items": [{"field": "*any"}], "action": "DATA", "reason": "EXPIRED_PARTIAL", "transform": "TG_VOLUME"}
+      ]}
+    ]
+  }
+}

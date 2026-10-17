@@ -1,0 +1,10 @@
+{
+  "name": "TG_NORMALISE",
+  "calls": [
+    {"fn": "E164", "args": ["served_msisdn", "962", "9"]},
+    {"fn": "E164", "args": ["other_party", "962", "9"]},
+    {"fn": "ROUNDBY", "args": ["duration_s", "1"]},
+    {"fn": "COPY", "args": ["duration_s", "charged_s"]},
+    {"fn": "ROUNDBY", "args": ["charged_s", "60"]}
+  ]
+}

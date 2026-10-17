@@ -1,0 +1,2 @@
+{"code": "DUP", "name": "Duplicate records", "output_template": "ERR_CSV", "dir": "/var/med/out/duplicate",
+ "naming": "DUP_{stream}_{input_base}_{seq:6}.csv", "rotation": {"mode": "per_input"}}

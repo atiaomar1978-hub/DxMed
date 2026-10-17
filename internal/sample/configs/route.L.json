@@ -1,0 +1,3 @@
+{"code": "L", "name": "Local subscribers (billing)", "output_template": "CDR_CSV", "dir": "/var/med/out/local",
+ "naming": "LOC_{stream}_{yyyy}{MM}{dd}{HH}{mm}{ss}_{seq:6}.csv", "rotation": {"mode": "rolling", "max_records": 5000},
+ "post_actions": [{"op": "checksum"}]}

@@ -1,0 +1,23 @@
+# design references (CGRateS is AGPL-3.0: never committed or shipped)
+/references/
+
+# build and test output
+/bin/
+/dist/
+*.out
+*.test
+coverage/
+/docs/build/
+
+# UI
+/ui/node_modules/
+/ui/.next/
+/ui/coverage/
+/ui/next-env.d.ts
+/ui/*.tsbuildinfo
+
+# local secrets
+*.env
+*.key
+*.pem
+.DS_Store

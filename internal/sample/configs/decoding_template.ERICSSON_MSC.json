@@ -1,0 +1,40 @@
+{
+  "name": "ERICSSON_MSC",
+  "format": "ber",
+  "file": {"exchange_id": {"regex": "^(MSC[0-9]+)_"}},
+  "unknown_tag": "ignore",
+  "records": [
+    {"tag": "[1] C", "record_type": "moCallRecord", "call_type": "1", "fields": [
+      {"tag": "[1]", "name": "served_imsi", "type": "TBCD", "mandatory": true},
+      {"tag": "[2]", "name": "served_msisdn", "type": "TBCD", "opts": {"skip_ton_npi": true}},
+      {"tag": "[3]", "name": "other_party", "type": "TBCD", "opts": {"skip_ton_npi": true}},
+      {"tag": "[4]", "name": "msc_id", "type": "ASCII"},
+      {"tag": "[5] C", "name": "location", "type": "STRUCT", "fields": [
+        {"tag": "[0]", "name": "lac", "type": "HEX"},
+        {"tag": "[1]", "name": "ci", "type": "HEX"}
+      ]},
+      {"tag": "[6]", "name": "start_time", "type": "TIME_BCD"},
+      {"tag": "[7]", "name": "end_time", "type": "TIME_BCD"},
+      {"tag": "[8]", "name": "duration_s", "type": "NUM"},
+      {"tag": "[9]", "name": "cause_for_term", "type": "NUM"},
+      {"tag": "[10]", "name": "record_seq", "type": "NUM"},
+      {"tag": "[*]", "name": "", "type": "IGNORE"}
+    ]},
+    {"tag": "[2] C", "record_type": "mtCallRecord", "call_type": "2", "fields": [
+      {"tag": "[1]", "name": "served_imsi", "type": "TBCD", "mandatory": true},
+      {"tag": "[2]", "name": "served_msisdn", "type": "TBCD", "opts": {"skip_ton_npi": true}},
+      {"tag": "[3]", "name": "other_party", "type": "TBCD", "opts": {"skip_ton_npi": true}},
+      {"tag": "[4]", "name": "msc_id", "type": "ASCII"},
+      {"tag": "[5] C", "name": "location", "type": "STRUCT", "fields": [
+        {"tag": "[0]", "name": "lac", "type": "HEX"},
+        {"tag": "[1]", "name": "ci", "type": "HEX"}
+      ]},
+      {"tag": "[6]", "name": "start_time", "type": "TIME_BCD"},
+      {"tag": "[7]", "name": "end_time", "type": "TIME_BCD"},
+      {"tag": "[8]", "name": "duration_s", "type": "NUM"},
+      {"tag": "[9]", "name": "cause_for_term", "type": "NUM"},
+      {"tag": "[10]", "name": "record_seq", "type": "NUM"},
+      {"tag": "[*]", "name": "", "type": "IGNORE"}
+    ]}
+  ]
+}
